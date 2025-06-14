@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Portfólio Pessoal</title>
+  </head>
+  <body>
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+      <ul class="menu">
+        <li>
+          <a href="#inicio" class="menu-link">Início</a>
+        </li>
+        <li>
+          <a href="#sobre" class="menu-link">Sobre</a>
+        </li>
+        <li>
+          <a href="#projetos" class="menu-link">Projetos</a>
+        </li>
+        <li>
+          <a href="#contato" class="menu-link">Contato</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+      <img
+        src="img/Eduardo.png"
+        alt="Foto Pessoal de Eduardo"
+        class="foto-perfil"
+      />
+      <h1>Eduardo Dellarosa Locatelli</h1>
+      <p class="sub-cabecalho">Estudante de Ciências da Computação</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+      <h2 class="sobre-titulo">Sobre Mim</h2>
+      <div class="sobre-caixa">
+        <p class="sobre-paragrafo">
+          Prazer, sou o Eduardo! Sempre tive muito interesse por programação e
+          adoro explorar novos conhecimentos, resolver problemas e me
+          desenvolver continuamente.
+        </p>
+      </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+      <h2 class="projetos-titulo">Meus Projetos</h2>
+      <div class="projetos-caixa">
+        <div class="projetos-card">
+          <img
+            src="img/Jogo Experiencia.png"
+            alt="Projeto 1"
+            class="projetos-imagem"
+          />
+          <div class="caixa-texto-projetos">
+            <h3 class="info-projetos">Jogo Medieval</h3>
+            <p class="paragrafo-projetos">
+              Embarque em uma aventura épica com um valente viking em um jogo 2D
+              cheio de ação! Enfrente obstáculos, supere desafios e mostre sua
+              bravura enquanto avança por uma fase repleta de perigos e
+              surpresas.
+            </p>
+          </div>
+        </div>
+
+        <div class="projetos-card">
+          <img
+            src="img/Multimídia Sustentável.png"
+            alt="Projeto 2"
+            class="projetos-imagem"
+          />
+          <div class="caixa-texto-projetos">
+            <h3 class="info-projetos">Multimídia Sustentável</h3>
+            <p class="paragrafo-projetos">
+              Quiz educativo voltado à conscientização de jovens sobre
+              reciclagem, proteção dos animais e uso de energia sustentável,
+              promovendo o aprendizado de forma interativa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <h2 class="contato-titulo">Entre em Contato</h2>
+      <form
+        class="formulario-contato"
+        id="formulario"
+        onsubmit="enviarWhats(event)"
+      >
+        <div class="grupo-form">
+          <input placeholder="Nome" class="campo-form" id="nome" />
+        </div>
+
+        <div class="grupo-form">
+          <textarea
+            class="campo-form"
+            placeholder="Digite sua Mensagem"
+            rows="6"
+            id="mensagem"
+          ></textarea>
+        </div>
+        <button type="submit" class="botao-form">Enviar WhatsApp</button>
+      </form>
+    </section>
+
+    <script>
+      function enviarWhats(event) {
+        event.preventDefault();
+        const nome = document.getElementById("nome").value;
+        const mensagem = document.getElementById("mensagem").value;
+        const telefone = "5541997460706";
+
+        const texto = `Olá, Me chamo ${nome}, ${mensagem}`;
+        const mensagemFormatada = encodeURIComponent(texto);
+
+        const url = `https://wa.me/${telefone}?text=${mensagemFormatada}`;
+
+        console.log(url)
+
+        window.open(url, "_blank")
+      }
+    </script>
+  </body>
+</html>
